@@ -18,13 +18,12 @@
         coordsTEAM[1] = "4,263,554,485";
         coordsTEAM[2] = "584,263,1134,485";
         coordsTEAM[3] = "4,535,554,758";
-        coordsTEAM[4] = "584,535,1134,758";
+        coordsTEAM[4] = "584,535,859,758";
+        coordsTEAM[5] = "859,535,1134,758";
 
         function setcoords(areaid, totalOfAreas) {
-            var width1 = document.getElementById('lbteam').width;
-            var width2 = 1138;
-            var ratio = width1 / width2;
-
+            var width = document.getElementById('lbteam').width;
+            var ratio = width / 1138;
             for (var i = 0; i < totalOfAreas; i++) {
                 var temp = coordsTEAM[i].split(",");
                 var newcoords = "";
@@ -39,23 +38,38 @@
         }
 
 
-       window.onload = function () {
-            setcoords("lbteam", 5);
+	window.onload = function () {
+            setcoords("lbteam", 6);
         };
 
         window.onresize = function () {
-            setcoords("lbteam", 5);
+            setcoords("lbteam", 6);
         };
+
+	$("#lbteam5").attr("coords", coordsTEAM[5]);
     </script>
   </head>
   <body>
     <img id="lbteam" usemap="#lbmap"  src="linbox-team-box.png" alt="LinBox team">
     <map name="lbmap">
-      <area alt="LinBox" id="lbteam0" shape="rect" coords="4,5,1134,236" href="https://linbox-team.github.io/linbox/">
-      <area alt="Givaro" id="lbteam1" shape="rect" coords="4,263,554,485"  href="https://casys.gricad-pages.univ-grenoble-alpes.fr/givaro">
-      <area alt="FFLAS-FFPACK" id="lbteam2" shape="rect" coords="584,263,1134,485"  href="http://linbox-team.github.io/fflas-ffpack/">
-      <area alt="GMP" id="lbteam3" shape="rect" coords="4,535,554,758"  href="https://gmplib.org/">
-      <area alt="OpenBLAS" id="lbteam4" shape="rect" coords="584,535,1134,758"  href="https://www.openblas.net/" > 
+      <area alt="LinBox" id="lbteam0" shape="rect"
+	  coords="0,0,1,1"
+	  href="https://linbox-team.github.io/linbox/">
+      <area alt="Givaro" id="lbteam1" shape="rect"
+	  coords="0,0,1,1"
+	  href="https://casys.gricad-pages.univ-grenoble-alpes.fr/givaro">
+      <area alt="FFLAS-FFPACK" id="lbteam2" shape="rect"
+	  coords="0,0,1,1"
+	  href="http://linbox-team.github.io/fflas-ffpack/">
+      <area alt="GMP" id="lbteam3" shape="rect"
+          coords="0,0,1,1"
+	  href="https://gmplib.org/">
+      <area alt="OpenBLAS, BLIS" id="lbteam4" shape="rect"
+	  coords="0,0,1,1"
+	  href="https://www.openblas.net/" > 
+      <area alt="OpenBLAS, BLIS" id="lbteam5" shape="rect"
+          coords="0,0,1,1"
+	  href="https://github.com/flame/blis" > 
     </map>
   </body>
 </html>
