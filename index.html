@@ -1,1 +1,59 @@
-Coucou
+<html>
+  <head>
+    <style>
+      img {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width:100%;
+      max-width:569px;
+      }
+    </style>
+    <script>
+        var coordsA = [];
+        coordsA[0] = "1134,236,4,5";
+        coordsA[1] = "4,264,554,485";
+        coordsA[2] = "584,263,1133,486";
+        coordsA[3] = "4,535,555,757";
+        coordsA[4] = "583,536,1134,758";
+
+        function setcoords(areaid, totalOfAreas) {
+            var width1 = document.getElementById('lbteam').width;
+            var width2 = 1138;
+            var ratio = width1 / width2;
+
+            for (var i = 0; i < totalOfAreas; i++) {
+                var temp = coordsA[i].split(",");
+                var newcoords = "";
+                for (var j = 0; j < temp.length; j++) {
+                    temp[j] *= ratio;
+                    newcoords += temp[j] + ",";
+                }
+                newcoords = newcoords.substr(0, newcoords.length - 1);
+
+                document.getElementById(areaid + i).coords = newcoords;
+            }
+        }
+
+
+       window.onload = function () {
+            setcoords("lbteam", 5);
+        };
+
+        window.onresize = function () {
+            setcoords("lbteam", 5);
+        };
+    </script>
+
+  </head>
+  <body>
+    <img id="lbteam" usemap="#lbmap"  src="linbox-team-box.png" alt="LinBox team">
+    <map name="lbmap">
+      <area id="lbteam0" shape="rect" href="https://linbox-team.github.io/linbox/">
+      <area id="lbteam1" shape="rect" href="https://casys.gricad-pages.univ-grenoble-alpes.fr/givaro">
+      <area id="lbteam2" shape="rect" href="http://linbox-team.github.io/fflas-ffpack/">
+      <area id="lbteam3" shape="rect" href="https://gmplib.org/">
+      <area id="lbteam4" shape="rect" href="https://www.openblas.net/" > 
+    </map>
+  </body>
+</html>
